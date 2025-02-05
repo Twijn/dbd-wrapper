@@ -1,0 +1,29 @@
+{
+  "name": "dbd-wrapper",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Wrapper to convert data from the dbd-info.com API to raw text for StreamElements",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app",
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Twijn/dbd-wrapper.git"
+  },
+  "author": "Twijn",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/Twijn/dbd-wrapper/issues"
+  },
+  "homepage": "https://github.com/Twijn/dbd-wrapper#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "node-fetch": "^3.3.2"
+  }
+}
