@@ -44,7 +44,6 @@ app.get("/", async (req, res) => {
 
     const cacheFind = cache.find(x => x.playerId === playerId);
     if (cacheFind) {
-        console.log("cache hit");
         data = cacheFind.data;
     }
 
