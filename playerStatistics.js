@@ -49,7 +49,7 @@ router.get("/", async (req, res) => {
 
     if (!data) {
         try {
-            data = await fetch(`${URI}?playerId=${playerId}`)
+            data = await get(`${URI}?playerId=${playerId}`)
         } catch(e) {
             res.send(e);
             return;
@@ -85,7 +85,7 @@ router.get("/", async (req, res) => {
         value = comma(value);
     }
 
-    res.send("" + value);
+    res.send(String(value));
 });
 
 setInterval(() => {
