@@ -1,6 +1,8 @@
 import { Router } from "express";
 import fetch from "node-fetch";
 
+import { get } from "./util.js";
+
 const router = new Router();
 
 const URI = "https://www.dbd-info.com/api/playerStatistics";
@@ -46,23 +48,10 @@ router.get("/", async (req, res) => {
     }
 
     if (!data) {
-        const dataFetch = await fetch(`${URI}?playerId=${playerId}`);
-        if (dataFetch.status === 200) {
-            try {
-                data = await dataFetch.json();
-            } catch(e) {
-                console.error(e);
-                res.send("Failed to parse result JSON");
-                return;
-            }
-        } else {
-            try {
-                data = await dataFetch.json();
-            } catch(e) {
-                console.error(e);
-            }
-            res.send("Received invalid response: " + dataFetch.status + " " + dataFetch.statusMessage);
-            console.error(data);
+        try {
+            data = await fetch(`${URI}?playerId=${playerId}`)
+        } catch(e) {
+            res.send(e);
             return;
         }
 
